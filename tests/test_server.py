@@ -9,6 +9,7 @@ class TestGRPCServer(unittest.IsolatedAsyncioTestCase):
         self.server = EdaGamesGRPC()
 
     async def test_start(self):
-        with patch.object(EdaGamesGRPC, 'server', new_callable=AsyncMock) as server_patched:
-            self.server.start()
+        server_patched = AsyncMock()
+        self.server.server = server_patched
+        await self.server.start()
         server_patched.start.assert_called()
