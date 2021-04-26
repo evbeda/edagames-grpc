@@ -13,7 +13,7 @@ class EdaGamesGRPC:
         self.server = grpc.aio.server()
         eda_games_pb2_grpc.add_EdaGameServiceServicer_to_server(
             EdaGamesService(),
-            self.server
+            self.server,
         )
         self.server.add_insecure_port(listen_addr)
 
