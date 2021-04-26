@@ -36,5 +36,5 @@ message GameStateResponse {
     google.protobuf.Struct turn_data = 4;
 }
 
-//python -m grpc_tools.protoc -I./edagames-grpc --python_out=. --grpc_python_out=. ./edagames-grpc/eda_games.proto
+//python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. ./eda_games.proto
 
