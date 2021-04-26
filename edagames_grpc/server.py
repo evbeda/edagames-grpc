@@ -1,6 +1,8 @@
 import grpc
 import eda_games_pb2
 import eda_games_pb2_grpc
+from game_state import GameState
+from typing import Dict
 
 
 class EdaGamesService(eda_games_pb2_grpc.EdaGameServiceServicer):
@@ -48,3 +50,15 @@ class EdaGamesGRPC:
 
     async def stop(self, timeout=0):
         return await self.server.stop(timeout)
+
+    async def create_game(players: list[str]) -> str:
+        pass
+
+    async def execute_action(game_id: str, game_data: Dict) -> GameState:
+        pass
+
+    async def end_game(game_id: str) -> GameState:
+        pass
+
+    async def penalize(game_id: str) -> GameState:
+        pass
