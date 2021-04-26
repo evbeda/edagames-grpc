@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0f\x65\x64\x61_games.proto\x1a\x1cgoogle/protobuf/struct.proto\"$\n\x11\x43reateGameRequest\x12\x0f\n\x07players\x18\x01 \x03(\t\"$\n\x12\x43reateGameResponse\x12\x0e\n\x06idgame\x18\x01 \x01(\t\"M\n\x14\x45xecuteActionRequest\x12\x0e\n\x06idgame\x18\x01 \x01(\t\x12%\n\x04\x64\x61ta\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\" \n\x0e\x45ndGameRequest\x12\x0e\n\x06idgame\x18\x01 \x01(\t\"!\n\x0fPenalizeRequest\x12\x0e\n\x06idgame\x18\x01 \x01(\t\"\xeb\x01\n\x11GameStateResponse\x12\x33\n\tplay_data\x18\x01 \x03(\x0b\x32 .GameStateResponse.PlayDataEntry\x12\x16\n\x0e\x63urrent_player\x18\x02 \x01(\t\x12\x13\n\x0bnext_player\x18\x03 \x01(\t\x12*\n\tturn_data\x18\x04 \x01(\x0b\x32\x17.google.protobuf.Struct\x1aH\n\rPlayDataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12&\n\x05value\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct:\x02\x38\x01\x32\xed\x01\n\x0e\x45\x64\x61GameService\x12\x37\n\nCreateGame\x12\x12.CreateGameRequest\x1a\x13.CreateGameResponse\"\x00\x12<\n\rExecuteAction\x12\x15.ExecuteActionRequest\x1a\x12.GameStateResponse\"\x00\x12\x30\n\x07\x45ndGame\x12\x0f.EndGameRequest\x1a\x12.GameStateResponse\"\x00\x12\x32\n\x08Penalize\x12\x10.PenalizeRequest\x1a\x12.GameStateResponse\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x0f\x65\x64\x61_games.proto\x1a\x1cgoogle/protobuf/struct.proto\"$\n\x11\x43reateGameRequest\x12\x0f\n\x07players\x18\x01 \x03(\t\"\x18\n\x06Idgame\x12\x0e\n\x06idgame\x18\x01 \x01(\t\"M\n\x14\x45xecuteActionRequest\x12\x0e\n\x06idgame\x18\x01 \x01(\t\x12%\n\x04\x64\x61ta\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\"\xeb\x01\n\x11GameStateResponse\x12\x33\n\tplay_data\x18\x01 \x03(\x0b\x32 .GameStateResponse.PlayDataEntry\x12\x16\n\x0e\x63urrent_player\x18\x02 \x01(\t\x12\x13\n\x0bnext_player\x18\x03 \x01(\t\x12*\n\tturn_data\x18\x04 \x01(\x0b\x32\x17.google.protobuf.Struct\x1aH\n\rPlayDataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12&\n\x05value\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct:\x02\x38\x01\x32\xd0\x01\n\x0e\x45\x64\x61GameService\x12+\n\nCreateGame\x12\x12.CreateGameRequest\x1a\x07.Idgame\"\x00\x12<\n\rExecuteAction\x12\x15.ExecuteActionRequest\x1a\x12.GameStateResponse\"\x00\x12(\n\x07\x45ndGame\x12\x07.Idgame\x1a\x12.GameStateResponse\"\x00\x12)\n\x08Penalize\x12\x07.Idgame\x1a\x12.GameStateResponse\"\x00\x62\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
 
@@ -59,16 +59,16 @@ _CREATEGAMEREQUEST = _descriptor.Descriptor(
 )
 
 
-_CREATEGAMERESPONSE = _descriptor.Descriptor(
-  name='CreateGameResponse',
-  full_name='CreateGameResponse',
+_IDGAME = _descriptor.Descriptor(
+  name='Idgame',
+  full_name='Idgame',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='idgame', full_name='CreateGameResponse.idgame', index=0,
+      name='idgame', full_name='Idgame.idgame', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -87,7 +87,7 @@ _CREATEGAMERESPONSE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=87,
-  serialized_end=123,
+  serialized_end=111,
 )
 
 
@@ -125,72 +125,8 @@ _EXECUTEACTIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=125,
-  serialized_end=202,
-)
-
-
-_ENDGAMEREQUEST = _descriptor.Descriptor(
-  name='EndGameRequest',
-  full_name='EndGameRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='idgame', full_name='EndGameRequest.idgame', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=204,
-  serialized_end=236,
-)
-
-
-_PENALIZEREQUEST = _descriptor.Descriptor(
-  name='PenalizeRequest',
-  full_name='PenalizeRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='idgame', full_name='PenalizeRequest.idgame', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=238,
-  serialized_end=271,
+  serialized_start=113,
+  serialized_end=190,
 )
 
 
@@ -228,8 +164,8 @@ _GAMESTATERESPONSE_PLAYDATAENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=437,
-  serialized_end=509,
+  serialized_start=356,
+  serialized_end=428,
 )
 
 _GAMESTATERESPONSE = _descriptor.Descriptor(
@@ -280,8 +216,8 @@ _GAMESTATERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=274,
-  serialized_end=509,
+  serialized_start=193,
+  serialized_end=428,
 )
 
 _EXECUTEACTIONREQUEST.fields_by_name['data'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
@@ -290,10 +226,8 @@ _GAMESTATERESPONSE_PLAYDATAENTRY.containing_type = _GAMESTATERESPONSE
 _GAMESTATERESPONSE.fields_by_name['play_data'].message_type = _GAMESTATERESPONSE_PLAYDATAENTRY
 _GAMESTATERESPONSE.fields_by_name['turn_data'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
 DESCRIPTOR.message_types_by_name['CreateGameRequest'] = _CREATEGAMEREQUEST
-DESCRIPTOR.message_types_by_name['CreateGameResponse'] = _CREATEGAMERESPONSE
+DESCRIPTOR.message_types_by_name['Idgame'] = _IDGAME
 DESCRIPTOR.message_types_by_name['ExecuteActionRequest'] = _EXECUTEACTIONREQUEST
-DESCRIPTOR.message_types_by_name['EndGameRequest'] = _ENDGAMEREQUEST
-DESCRIPTOR.message_types_by_name['PenalizeRequest'] = _PENALIZEREQUEST
 DESCRIPTOR.message_types_by_name['GameStateResponse'] = _GAMESTATERESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -304,12 +238,12 @@ CreateGameRequest = _reflection.GeneratedProtocolMessageType('CreateGameRequest'
   })
 _sym_db.RegisterMessage(CreateGameRequest)
 
-CreateGameResponse = _reflection.GeneratedProtocolMessageType('CreateGameResponse', (_message.Message,), {
-  'DESCRIPTOR' : _CREATEGAMERESPONSE,
+Idgame = _reflection.GeneratedProtocolMessageType('Idgame', (_message.Message,), {
+  'DESCRIPTOR' : _IDGAME,
   '__module__' : 'eda_games_pb2'
-  # @@protoc_insertion_point(class_scope:CreateGameResponse)
+  # @@protoc_insertion_point(class_scope:Idgame)
   })
-_sym_db.RegisterMessage(CreateGameResponse)
+_sym_db.RegisterMessage(Idgame)
 
 ExecuteActionRequest = _reflection.GeneratedProtocolMessageType('ExecuteActionRequest', (_message.Message,), {
   'DESCRIPTOR' : _EXECUTEACTIONREQUEST,
@@ -317,20 +251,6 @@ ExecuteActionRequest = _reflection.GeneratedProtocolMessageType('ExecuteActionRe
   # @@protoc_insertion_point(class_scope:ExecuteActionRequest)
   })
 _sym_db.RegisterMessage(ExecuteActionRequest)
-
-EndGameRequest = _reflection.GeneratedProtocolMessageType('EndGameRequest', (_message.Message,), {
-  'DESCRIPTOR' : _ENDGAMEREQUEST,
-  '__module__' : 'eda_games_pb2'
-  # @@protoc_insertion_point(class_scope:EndGameRequest)
-  })
-_sym_db.RegisterMessage(EndGameRequest)
-
-PenalizeRequest = _reflection.GeneratedProtocolMessageType('PenalizeRequest', (_message.Message,), {
-  'DESCRIPTOR' : _PENALIZEREQUEST,
-  '__module__' : 'eda_games_pb2'
-  # @@protoc_insertion_point(class_scope:PenalizeRequest)
-  })
-_sym_db.RegisterMessage(PenalizeRequest)
 
 GameStateResponse = _reflection.GeneratedProtocolMessageType('GameStateResponse', (_message.Message,), {
 
@@ -357,8 +277,8 @@ _EDAGAMESERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=512,
-  serialized_end=749,
+  serialized_start=431,
+  serialized_end=639,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateGame',
@@ -366,7 +286,7 @@ _EDAGAMESERVICE = _descriptor.ServiceDescriptor(
     index=0,
     containing_service=None,
     input_type=_CREATEGAMEREQUEST,
-    output_type=_CREATEGAMERESPONSE,
+    output_type=_IDGAME,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -385,7 +305,7 @@ _EDAGAMESERVICE = _descriptor.ServiceDescriptor(
     full_name='EdaGameService.EndGame',
     index=2,
     containing_service=None,
-    input_type=_ENDGAMEREQUEST,
+    input_type=_IDGAME,
     output_type=_GAMESTATERESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
@@ -395,7 +315,7 @@ _EDAGAMESERVICE = _descriptor.ServiceDescriptor(
     full_name='EdaGameService.Penalize',
     index=3,
     containing_service=None,
-    input_type=_PENALIZEREQUEST,
+    input_type=_IDGAME,
     output_type=_GAMESTATERESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
