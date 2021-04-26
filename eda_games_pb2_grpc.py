@@ -17,7 +17,7 @@ class EdaGameServiceStub(object):
         self.CreateGame = channel.unary_unary(
                 '/EdaGameService/CreateGame',
                 request_serializer=eda__games__pb2.CreateGameRequest.SerializeToString,
-                response_deserializer=eda__games__pb2.CreateGameResponse.FromString,
+                response_deserializer=eda__games__pb2.Idgame.FromString,
                 )
         self.ExecuteAction = channel.unary_unary(
                 '/EdaGameService/ExecuteAction',
@@ -26,12 +26,12 @@ class EdaGameServiceStub(object):
                 )
         self.EndGame = channel.unary_unary(
                 '/EdaGameService/EndGame',
-                request_serializer=eda__games__pb2.EndGameRequest.SerializeToString,
+                request_serializer=eda__games__pb2.Idgame.SerializeToString,
                 response_deserializer=eda__games__pb2.GameStateResponse.FromString,
                 )
         self.Penalize = channel.unary_unary(
                 '/EdaGameService/Penalize',
-                request_serializer=eda__games__pb2.PenalizeRequest.SerializeToString,
+                request_serializer=eda__games__pb2.Idgame.SerializeToString,
                 response_deserializer=eda__games__pb2.GameStateResponse.FromString,
                 )
 
@@ -69,7 +69,7 @@ def add_EdaGameServiceServicer_to_server(servicer, server):
             'CreateGame': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateGame,
                     request_deserializer=eda__games__pb2.CreateGameRequest.FromString,
-                    response_serializer=eda__games__pb2.CreateGameResponse.SerializeToString,
+                    response_serializer=eda__games__pb2.Idgame.SerializeToString,
             ),
             'ExecuteAction': grpc.unary_unary_rpc_method_handler(
                     servicer.ExecuteAction,
@@ -78,12 +78,12 @@ def add_EdaGameServiceServicer_to_server(servicer, server):
             ),
             'EndGame': grpc.unary_unary_rpc_method_handler(
                     servicer.EndGame,
-                    request_deserializer=eda__games__pb2.EndGameRequest.FromString,
+                    request_deserializer=eda__games__pb2.Idgame.FromString,
                     response_serializer=eda__games__pb2.GameStateResponse.SerializeToString,
             ),
             'Penalize': grpc.unary_unary_rpc_method_handler(
                     servicer.Penalize,
-                    request_deserializer=eda__games__pb2.PenalizeRequest.FromString,
+                    request_deserializer=eda__games__pb2.Idgame.FromString,
                     response_serializer=eda__games__pb2.GameStateResponse.SerializeToString,
             ),
     }
@@ -109,7 +109,7 @@ class EdaGameService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/EdaGameService/CreateGame',
             eda__games__pb2.CreateGameRequest.SerializeToString,
-            eda__games__pb2.CreateGameResponse.FromString,
+            eda__games__pb2.Idgame.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -142,7 +142,7 @@ class EdaGameService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/EdaGameService/EndGame',
-            eda__games__pb2.EndGameRequest.SerializeToString,
+            eda__games__pb2.Idgame.SerializeToString,
             eda__games__pb2.GameStateResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -159,7 +159,7 @@ class EdaGameService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/EdaGameService/Penalize',
-            eda__games__pb2.PenalizeRequest.SerializeToString,
+            eda__games__pb2.Idgame.SerializeToString,
             eda__games__pb2.GameStateResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
