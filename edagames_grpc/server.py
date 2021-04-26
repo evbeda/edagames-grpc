@@ -4,7 +4,33 @@ import eda_games_pb2_grpc
 
 
 class EdaGamesService(eda_games_pb2_grpc.EdaGameServiceServicer):
-    pass
+    async def CreateGame(
+        self,
+        request: eda_games_pb2.CreateGameRequest,
+        context: grpc.aio.ServicerContext,
+    ) -> eda_games_pb2.CreateGameResponse:
+        pass
+
+    async def ExecuteAction(
+        self,
+        request: eda_games_pb2.CreateGameRequest,
+        context: grpc.aio.ServicerContext,
+    ) -> eda_games_pb2.GameStateResponse:
+        pass
+
+    async def EndGame(
+        self,
+        request: eda_games_pb2.CreateGameRequest,
+        context: grpc.aio.ServicerContext,
+    ) -> eda_games_pb2.GameStateResponse:
+        pass
+
+    async def Penalize(
+        self,
+        request: eda_games_pb2.CreateGameRequest,
+        context: grpc.aio.ServicerContext,
+    ) -> eda_games_pb2.GameStateResponse:
+        pass
 
 
 class EdaGamesGRPC:
