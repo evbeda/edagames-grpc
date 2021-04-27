@@ -28,3 +28,14 @@ class GameState:
         response.turn_data.update(self.turn_data)
         response.play_data.update(self.play_data)
         return response
+
+    @staticmethod
+    def from_protobuf_game_state_response(
+        game_state_response: eda_games_pb2.GameStateResponse,
+    ) -> 'GameState':
+        return GameState(
+            game_state_response.current_player,
+            game_state_response.next_player,
+            game_state_response.turn_data,
+            game_state_response.play_data
+        )
