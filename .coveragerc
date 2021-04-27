@@ -1,6 +1,6 @@
 [run]
 source =
-    edagames-grpc
+    edagames_grpc
 omit =
     env/*
     */tests*
