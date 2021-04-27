@@ -1,8 +1,10 @@
 import grpc
+from typing import Dict, List
+
+from edagames_grpc.game_state import GameState
+
 import eda_games_pb2
 import eda_games_pb2_grpc
-from .game_state import GameState
-from typing import Dict, List
 
 
 def prepare_game_state(
