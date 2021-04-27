@@ -3,4 +3,8 @@ from google.protobuf.struct_pb2 import Struct
 
 
 def struct_to_dict(data: Struct) -> Dict:
-    pass
+    converted = {}
+    for k, v in data.items():
+        if isinstance(v, dict):
+            v = struct_to_dict(v)
+        converted[k] = v
