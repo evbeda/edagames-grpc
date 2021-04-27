@@ -6,9 +6,6 @@ from google.protobuf.struct_pb2 import Struct
 
 class ClientGRPC:
     def __init__(self):
-        self.stub = None
-
-    async def start(self):
         channel = grpc.aio.insecure_channel('localhost:50051')
         self.stub = eda_games_pb2_grpc.EdaGameServiceStub(channel)
 
