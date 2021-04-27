@@ -28,7 +28,7 @@ class ServerGRPC(eda_games_pb2_grpc.EdaGameServiceServicer):
 
     async def ExecuteAction(
         self,
-        request: eda_games_pb2.Idgame,
+        request: eda_games_pb2.ExecuteActionRequest,
         context: grpc.aio.ServicerContext,
     ) -> eda_games_pb2.GameStateResponse:
         game_state = await self.delegate.execute_action(
@@ -75,14 +75,18 @@ class ServerInterface:
     async def stop(self, timeout=0):
         return await self.server.stop(timeout)
 
-    async def create_game(players: List[str]) -> str:
+    async def start_and_wait(self):
+        await self.start()
+        await self.server.wait_for_termination()
+
+    async def create_game(self, players: List[str]) -> str:
         raise NotImplementedError
 
-    async def execute_action(game_id: str, game_data: Dict) -> GameState:
+    async def execute_action(self, game_id: str, game_data: Dict) -> GameState:
         raise NotImplementedError
 
-    async def end_game(game_id: str) -> GameState:
+    async def end_game(self, game_id: str) -> GameState:
         raise NotImplementedError
 
-    async def penalize(game_id: str) -> GameState:
+    async def penalize(self, game_id: str) -> GameState:
         raise NotImplementedError

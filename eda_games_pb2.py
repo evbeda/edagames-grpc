@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0f\x65\x64\x61_games.proto\x1a\x1cgoogle/protobuf/struct.proto\"$\n\x11\x43reateGameRequest\x12\x0f\n\x07players\x18\x01 \x03(\t\"\x18\n\x06Idgame\x12\x0e\n\x06idgame\x18\x01 \x01(\t\"M\n\x14\x45xecuteActionRequest\x12\x0e\n\x06idgame\x18\x01 \x01(\t\x12%\n\x04\x64\x61ta\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\"\xeb\x01\n\x11GameStateResponse\x12\x33\n\tplay_data\x18\x01 \x03(\x0b\x32 .GameStateResponse.PlayDataEntry\x12\x16\n\x0e\x63urrent_player\x18\x02 \x01(\t\x12\x13\n\x0bnext_player\x18\x03 \x01(\t\x12*\n\tturn_data\x18\x04 \x01(\x0b\x32\x17.google.protobuf.Struct\x1aH\n\rPlayDataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12&\n\x05value\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct:\x02\x38\x01\x32\xd0\x01\n\x0e\x45\x64\x61GameService\x12+\n\nCreateGame\x12\x12.CreateGameRequest\x1a\x07.Idgame\"\x00\x12<\n\rExecuteAction\x12\x15.ExecuteActionRequest\x1a\x12.GameStateResponse\"\x00\x12(\n\x07\x45ndGame\x12\x07.Idgame\x1a\x12.GameStateResponse\"\x00\x12)\n\x08Penalize\x12\x07.Idgame\x1a\x12.GameStateResponse\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x0f\x65\x64\x61_games.proto\x1a\x1cgoogle/protobuf/struct.proto\"$\n\x11\x43reateGameRequest\x12\x0f\n\x07players\x18\x01 \x03(\t\"\x18\n\x06Idgame\x12\x0e\n\x06idgame\x18\x01 \x01(\t\"M\n\x14\x45xecuteActionRequest\x12\x0e\n\x06idgame\x18\x01 \x01(\t\x12%\n\x04\x64\x61ta\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\"\x98\x01\n\x11GameStateResponse\x12*\n\tplay_data\x18\x01 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x16\n\x0e\x63urrent_player\x18\x02 \x01(\t\x12\x13\n\x0bnext_player\x18\x03 \x01(\t\x12*\n\tturn_data\x18\x04 \x01(\x0b\x32\x17.google.protobuf.Struct2\xd0\x01\n\x0e\x45\x64\x61GameService\x12+\n\nCreateGame\x12\x12.CreateGameRequest\x1a\x07.Idgame\"\x00\x12<\n\rExecuteAction\x12\x15.ExecuteActionRequest\x1a\x12.GameStateResponse\"\x00\x12(\n\x07\x45ndGame\x12\x07.Idgame\x1a\x12.GameStateResponse\"\x00\x12)\n\x08Penalize\x12\x07.Idgame\x1a\x12.GameStateResponse\"\x00\x62\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
 
@@ -130,44 +130,6 @@ _EXECUTEACTIONREQUEST = _descriptor.Descriptor(
 )
 
 
-_GAMESTATERESPONSE_PLAYDATAENTRY = _descriptor.Descriptor(
-  name='PlayDataEntry',
-  full_name='GameStateResponse.PlayDataEntry',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='key', full_name='GameStateResponse.PlayDataEntry.key', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='value', full_name='GameStateResponse.PlayDataEntry.value', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=b'8\001',
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=356,
-  serialized_end=428,
-)
-
 _GAMESTATERESPONSE = _descriptor.Descriptor(
   name='GameStateResponse',
   full_name='GameStateResponse',
@@ -178,8 +140,8 @@ _GAMESTATERESPONSE = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='play_data', full_name='GameStateResponse.play_data', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -207,7 +169,7 @@ _GAMESTATERESPONSE = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_GAMESTATERESPONSE_PLAYDATAENTRY, ],
+  nested_types=[],
   enum_types=[
   ],
   serialized_options=None,
@@ -217,13 +179,11 @@ _GAMESTATERESPONSE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=193,
-  serialized_end=428,
+  serialized_end=345,
 )
 
 _EXECUTEACTIONREQUEST.fields_by_name['data'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
-_GAMESTATERESPONSE_PLAYDATAENTRY.fields_by_name['value'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
-_GAMESTATERESPONSE_PLAYDATAENTRY.containing_type = _GAMESTATERESPONSE
-_GAMESTATERESPONSE.fields_by_name['play_data'].message_type = _GAMESTATERESPONSE_PLAYDATAENTRY
+_GAMESTATERESPONSE.fields_by_name['play_data'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
 _GAMESTATERESPONSE.fields_by_name['turn_data'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
 DESCRIPTOR.message_types_by_name['CreateGameRequest'] = _CREATEGAMEREQUEST
 DESCRIPTOR.message_types_by_name['Idgame'] = _IDGAME
@@ -253,22 +213,13 @@ ExecuteActionRequest = _reflection.GeneratedProtocolMessageType('ExecuteActionRe
 _sym_db.RegisterMessage(ExecuteActionRequest)
 
 GameStateResponse = _reflection.GeneratedProtocolMessageType('GameStateResponse', (_message.Message,), {
-
-  'PlayDataEntry' : _reflection.GeneratedProtocolMessageType('PlayDataEntry', (_message.Message,), {
-    'DESCRIPTOR' : _GAMESTATERESPONSE_PLAYDATAENTRY,
-    '__module__' : 'eda_games_pb2'
-    # @@protoc_insertion_point(class_scope:GameStateResponse.PlayDataEntry)
-    })
-  ,
   'DESCRIPTOR' : _GAMESTATERESPONSE,
   '__module__' : 'eda_games_pb2'
   # @@protoc_insertion_point(class_scope:GameStateResponse)
   })
 _sym_db.RegisterMessage(GameStateResponse)
-_sym_db.RegisterMessage(GameStateResponse.PlayDataEntry)
 
 
-_GAMESTATERESPONSE_PLAYDATAENTRY._options = None
 
 _EDAGAMESERVICE = _descriptor.ServiceDescriptor(
   name='EdaGameService',
@@ -277,8 +228,8 @@ _EDAGAMESERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=431,
-  serialized_end=639,
+  serialized_start=348,
+  serialized_end=556,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateGame',

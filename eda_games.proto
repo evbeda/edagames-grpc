@@ -18,11 +18,11 @@ message Idgame {
 
 message ExecuteActionRequest {
     string idgame = 1;
-    google.protobuf.Struct data= 2;
+    google.protobuf.Struct data = 2;
 }
 
 message GameStateResponse {
-    map <string,google.protobuf.Struct> play_data = 1;
+    google.protobuf.Struct play_data = 1;
     string current_player = 2;
     string next_player = 3;
     google.protobuf.Struct turn_data = 4;
