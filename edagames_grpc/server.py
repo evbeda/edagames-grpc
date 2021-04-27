@@ -8,17 +8,6 @@ import eda_games_pb2
 import eda_games_pb2_grpc
 
 
-def prepare_game_state(
-    game_state: GameState
-) -> eda_games_pb2.GameStateResponse:
-    response = eda_games_pb2.GameStateResponse()
-    response.current_player = game_state.current_player
-    response.next_player = game_state.next_player
-    response.turn_data.update(game_state.turn_data)
-    response.play_data.update(game_state.play_data)
-    return response
-
-
 class ServerGRPC(eda_games_pb2_grpc.EdaGameServiceServicer):
 
     def __init__(self, delegate: 'ServerInterface'):
@@ -46,7 +35,7 @@ class ServerGRPC(eda_games_pb2_grpc.EdaGameServiceServicer):
             request.idgame,
             struct_to_dict(request.data),
         )
-        return prepare_game_state(game_state)
+        return game_state.to_protobuf_struct()
 
     async def EndGame(
         self,
@@ -56,7 +45,7 @@ class ServerGRPC(eda_games_pb2_grpc.EdaGameServiceServicer):
         game_state = await self.delegate.end_game(
             request.idgame,
         )
-        return prepare_game_state(game_state)
+        return game_state.to_protobuf_struct()
 
     async def Penalize(
         self,
@@ -66,7 +55,7 @@ class ServerGRPC(eda_games_pb2_grpc.EdaGameServiceServicer):
         game_state = await self.delegate.penalize(
             request.idgame,
         )
-        return prepare_game_state(game_state)
+        return game_state.to_protobuf_struct()
 
 
 class ServerInterface:
