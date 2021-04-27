@@ -5,8 +5,8 @@ from google.protobuf.struct_pb2 import Struct
 
 
 class ClientGRPC:
-    def __init__(self):
-        channel = grpc.aio.insecure_channel('localhost:50051')
+    def __init__(self, server_ip: str = '0.0.0.0', port: int = 50001):
+        channel = grpc.aio.insecure_channel(f'{server_ip}:{port}')
         self.stub = eda_games_pb2_grpc.EdaGameServiceStub(channel)
 
     async def create_game(self, players):
