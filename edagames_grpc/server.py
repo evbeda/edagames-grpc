@@ -27,7 +27,7 @@ class ServerGRPC(eda_games_pb2_grpc.EdaGameServiceServicer):
         request: eda_games_pb2.CreateGameRequest,
         context: grpc.aio.ServicerContext,
     ) -> eda_games_pb2.Idgame:
-        game_id = self.delegate.create_game(
+        game_id = await self.delegate.create_game(
             request.players,
         )
         return eda_games_pb2.Idgame(
@@ -39,7 +39,7 @@ class ServerGRPC(eda_games_pb2_grpc.EdaGameServiceServicer):
         request: eda_games_pb2.Idgame,
         context: grpc.aio.ServicerContext,
     ) -> eda_games_pb2.GameStateResponse:
-        game_state = self.delegate.execute_action(
+        game_state = await self.delegate.execute_action(
             request.idgame,
             request.data,
         )
@@ -50,7 +50,7 @@ class ServerGRPC(eda_games_pb2_grpc.EdaGameServiceServicer):
         request: eda_games_pb2.Idgame,
         context: grpc.aio.ServicerContext,
     ) -> eda_games_pb2.GameStateResponse:
-        game_state = self.delegate.end_game(
+        game_state = await self.delegate.end_game(
             request.idgame,
         )
         return prepare_game_state(game_state)
@@ -60,7 +60,7 @@ class ServerGRPC(eda_games_pb2_grpc.EdaGameServiceServicer):
         request: eda_games_pb2.Idgame,
         context: grpc.aio.ServicerContext,
     ) -> eda_games_pb2.GameStateResponse:
-        game_state = self.delegate.penalize(
+        game_state = await self.delegate.penalize(
             request.idgame,
         )
         return prepare_game_state(game_state)
