@@ -3,7 +3,7 @@ from edagames_grpc.client import ClientGRPC
 
 
 async def test_client():
-    c = ClientGRPC()
+    c = ClientGRPC(port=50051)
     r = await c.create_game(['asd'])
     print(f'Received {r}')
     r = await c.execute_action(
