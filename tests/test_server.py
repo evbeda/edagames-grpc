@@ -1,9 +1,11 @@
-import unittest
-from unittest.mock import patch, AsyncMock
-from edagames_grpc.server import ServerGRPC
-from edagames_grpc.server import ServerInterface
 import grpc_testing
 import grpc
+import unittest
+from unittest.mock import AsyncMock
+
+from edagames_grpc.server import ServerGRPC
+from edagames_grpc.server import ServerInterface
+
 import eda_games_pb2
 
 
