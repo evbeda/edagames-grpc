@@ -1,4 +1,5 @@
 import grpc
+from protobuf_to_dict import protobuf_to_dict
 from typing import Dict, List
 
 from edagames_grpc.game_state import GameState
@@ -43,7 +44,7 @@ class ServerGRPC(eda_games_pb2_grpc.EdaGameServiceServicer):
     ) -> eda_games_pb2.GameStateResponse:
         game_state = await self.delegate.execute_action(
             request.idgame,
-            request.data,
+            protobuf_to_dict(request.data),
         )
         return prepare_game_state(game_state)
 
