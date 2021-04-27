@@ -17,6 +17,7 @@ def prepare_game_state(
 
 
 class EdaGamesService(eda_games_pb2_grpc.EdaGameServiceServicer):
+
     def __init__(self, delegate):
         super().__init__()
         self.delegate = delegate

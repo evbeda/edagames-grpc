@@ -13,3 +13,9 @@ class TestGRPCServer(unittest.IsolatedAsyncioTestCase):
         self.server.server = server_patched
         await self.server.start()
         server_patched.start.assert_called()
+
+    async def test_stop(self):
+        server_patched = AsyncMock()
+        self.server.server = server_patched
+        await self.server.stop()
+        server_patched.stop.assert_called()
