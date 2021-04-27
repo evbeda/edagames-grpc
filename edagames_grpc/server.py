@@ -20,7 +20,7 @@ def prepare_game_state(
 
 class ServerGRPC(eda_games_pb2_grpc.EdaGameServiceServicer):
 
-    def __init__(self, delegate):
+    def __init__(self, delegate: 'ServerInterface'):
         super().__init__()
         self.delegate = delegate
 
