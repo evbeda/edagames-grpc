@@ -16,7 +16,7 @@ def prepare_game_state(
     return response
 
 
-class EdaGamesService(eda_games_pb2_grpc.EdaGameServiceServicer):
+class ServerGRPC(eda_games_pb2_grpc.EdaGameServiceServicer):
 
     def __init__(self, delegate):
         super().__init__()
@@ -66,13 +66,13 @@ class EdaGamesService(eda_games_pb2_grpc.EdaGameServiceServicer):
         return prepare_game_state(game_state)
 
 
-class EdaGamesGRPC:
+class ServerInterface:
 
     def __init__(self, bind_ip: str = '0.0.0.0', port: int = 50001):
         listen_addr = f'{bind_ip}:{port}'
         self.server = grpc.aio.server()
         eda_games_pb2_grpc.add_EdaGameServiceServicer_to_server(
-            EdaGamesService(self),
+            ServerGRPC(self),
             self.server,
         )
         self.server.add_insecure_port(listen_addr)
