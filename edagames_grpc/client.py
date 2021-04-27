@@ -10,8 +10,10 @@ class ClientGRPC:
         self.stub = eda_games_pb2_grpc.EdaGameServiceStub(channel)
 
     async def create_game(self, players):
-        request = eda_games_pb2.CreateGameRequest(players=players)
-        return await self.stub.CreateGame(request)
+        response = await self.stub.CreateGame(
+            eda_games_pb2.CreateGameRequest(players=players)
+        )
+        return response.idgame
 
     async def execute_action(self, game_id, data_dict):
         data_struct = Struct()
