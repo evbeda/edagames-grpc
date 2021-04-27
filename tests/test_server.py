@@ -29,13 +29,6 @@ class TestServerInterface(unittest.IsolatedAsyncioTestCase):
 
 class TestServerGRPC(unittest.IsolatedAsyncioTestCase):
 
-    # def setUp(self):
-    #     grpc_patched = AsyncMock()
-    #     self.service = EdaGamesService(grpc_patched)
-
-    # async def test_create_game(self):
-    #     pass
-
     def setUp(self):
         self._real_time = grpc_testing.strict_real_time()
         self.delegate = AsyncMock()
