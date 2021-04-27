@@ -1,0 +1,14 @@
+@startuml classes
+class Client
+class ClientGRPC
+class ServerGRPC
+interface ServerInterface
+class ServerImplementation
+circle gRPC
+
+Client --> ClientGRPC
+ClientGRPC -r-> gRPC
+ServerImplementation ..|> ServerInterface
+ServerInterface <-l- ServerGRPC
+ServerGRPC <-l- gRPC
+@enduml
