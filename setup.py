@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="eda5grpc",
-    version='0.2.1',
+    version='1.0.1',
     description='Interface for gRPC communication',
     package_dir={'': 'src'},
     packages=find_packages(where="src"),
@@ -23,9 +23,11 @@ setup(
 
     # LICENSE
     classifiers=[
-        "Programming Language :: Python :: 3.8",
-        "License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)",
-        "Operating System :: OS Independent"
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: Apache Software License",
+        "Operating System :: OS Independent",
+        "Environment :: Console",
+        'Intended Audience :: Developers',
     ],
 
     # README.md
