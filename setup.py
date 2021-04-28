@@ -4,8 +4,8 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(
-    name="eda5grpc",
-    version='1.0.1',
+    name="edagames_grpc",
+    version='0.3.2',
     description='Interface for gRPC communication',
     package_dir={'': 'src'},
     packages=find_packages(where="src"),
