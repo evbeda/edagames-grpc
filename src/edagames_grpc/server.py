@@ -1,12 +1,12 @@
 import grpc
 from typing import Dict, List
 
-from edagames_grpc.game_state import GameState
-from edagames_grpc.game_start import GameStart
-from edagames_grpc.utils import struct_to_dict
+from .game_state import GameState
+from .game_start import GameStart
+from .utils import struct_to_dict
 
-import eda_games_pb2
-import eda_games_pb2_grpc
+from . import eda_games_pb2
+from . import eda_games_pb2_grpc
 
 
 class ServerGRPC(eda_games_pb2_grpc.EdaGameServiceServicer):

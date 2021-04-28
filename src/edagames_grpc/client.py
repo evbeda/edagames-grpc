@@ -1,10 +1,10 @@
 import grpc
 from google.protobuf.struct_pb2 import Struct
 
-from game_state import GameState
+from .game_state import GameState
 
-import eda_games_pb2
-import eda_games_pb2_grpc
+from . import eda_games_pb2
+from . import eda_games_pb2_grpc
 
 
 class ClientGRPC:
