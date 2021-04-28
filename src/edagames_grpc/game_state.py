@@ -1,6 +1,6 @@
 from typing import Dict
 
-from . import eda_games_pb2
+from edagames_grpc import eda_games_pb2
 
 
 class GameState:
