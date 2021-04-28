@@ -1,12 +1,10 @@
 import grpc_testing
-# import grpc
 import unittest
 from unittest.mock import AsyncMock
 
-from edagames_grpc.server import ServerGRPC
-from edagames_grpc.server import ServerInterface
-
-import eda_games_pb2
+from src.edagames_grpc.server import ServerGRPC
+from src.edagames_grpc.server import ServerInterface
+from src.edagames_grpc import eda_games_pb2
 
 
 class TestServerInterface(unittest.IsolatedAsyncioTestCase):
