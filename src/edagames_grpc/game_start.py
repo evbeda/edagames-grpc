@@ -20,7 +20,7 @@ class GameStart:
 
     def to_protobuf_struct(self) -> eda_games_pb2.GameStartResponse:
         response = eda_games_pb2.GameStartResponse()
-        response.id_game = self.id_game
+        response.idgame = self.id_game
         response.current_player = self.current_player
         response.turn_data.update(self.turn_data)
         return response
