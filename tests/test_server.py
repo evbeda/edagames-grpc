@@ -40,19 +40,3 @@ class TestServerGRPC(unittest.IsolatedAsyncioTestCase):
         self.server = grpc_testing.server_from_dictionary(
             descriptors_to_servicers, self._real_time,
         )
-
-    async def test_create_game(self):
-        request = eda_games_pb2.CreateGameRequest()
-        request.players.extend(['Player 1', 'Player 2'])
-        self.delegate.create_game.return_value = '0001'
-        rpc = self.server.invoke_unary_unary(
-            self.service.methods_by_name['CreateGame'],
-            (),
-            request,
-            None,
-        )
-        response, trailing_metadata, code, details = rpc.termination()
-        response_awaited = await response
-        expected = eda_games_pb2.Idgame(idgame='0001')
-        self.assertEqual(response_awaited, expected)
-        self.assertIs(code, grpc.StatusCode.OK)
