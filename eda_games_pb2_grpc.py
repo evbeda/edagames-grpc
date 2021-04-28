@@ -17,7 +17,7 @@ class EdaGameServiceStub(object):
         self.CreateGame = channel.unary_unary(
                 '/EdaGameService/CreateGame',
                 request_serializer=eda__games__pb2.CreateGameRequest.SerializeToString,
-                response_deserializer=eda__games__pb2.Idgame.FromString,
+                response_deserializer=eda__games__pb2.GameStartResponse.FromString,
                 )
         self.ExecuteAction = channel.unary_unary(
                 '/EdaGameService/ExecuteAction',
@@ -69,7 +69,7 @@ def add_EdaGameServiceServicer_to_server(servicer, server):
             'CreateGame': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateGame,
                     request_deserializer=eda__games__pb2.CreateGameRequest.FromString,
-                    response_serializer=eda__games__pb2.Idgame.SerializeToString,
+                    response_serializer=eda__games__pb2.GameStartResponse.SerializeToString,
             ),
             'ExecuteAction': grpc.unary_unary_rpc_method_handler(
                     servicer.ExecuteAction,
@@ -109,7 +109,7 @@ class EdaGameService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/EdaGameService/CreateGame',
             eda__games__pb2.CreateGameRequest.SerializeToString,
-            eda__games__pb2.Idgame.FromString,
+            eda__games__pb2.GameStartResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
