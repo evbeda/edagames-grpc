@@ -2,7 +2,7 @@ syntax = "proto3";
 import "google/protobuf/struct.proto";
 
 service EdaGameService{
-    rpc CreateGame(CreateGameRequest) returns(Idgame){}
+    rpc CreateGame(CreateGameRequest) returns(GameStartResponse){}
     rpc ExecuteAction(ExecuteActionRequest) returns(GameStateResponse){}
     rpc EndGame(Idgame) returns(GameStateResponse) {}
     rpc Penalize(Idgame) returns(GameStateResponse) {}
@@ -26,6 +26,13 @@ message GameStateResponse {
     string current_player = 2;
     string next_player = 3;
     google.protobuf.Struct turn_data = 4;
+}
+
+
+message GameStartResponse {
+    string idgame = 1;
+    string next_player = 2;
+    google.protobuf.Struct turn_data = 3;
 }
 
 
