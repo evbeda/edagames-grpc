@@ -2,6 +2,7 @@ import grpc
 from typing import Dict, List
 
 from edagames_grpc.game_state import GameState
+from edagames_grpc.game_start import GameStart
 from edagames_grpc.utils import struct_to_dict
 
 import eda_games_pb2
@@ -18,13 +19,11 @@ class ServerGRPC(eda_games_pb2_grpc.EdaGameServiceServicer):
         self,
         request: eda_games_pb2.CreateGameRequest,
         context: grpc.aio.ServicerContext,
-    ) -> eda_games_pb2.Idgame:
-        game_id = await self.delegate.create_game(
+    ) -> eda_games_pb2.GameStartResponse:
+        game_start = await self.delegate.create_game(
             request.players,
         )
-        return eda_games_pb2.Idgame(
-            idgame=game_id,
-        )
+        return game_start.to_protobuf_struct()
 
     async def ExecuteAction(
         self,
@@ -79,7 +78,7 @@ class ServerInterface:
         await self.start()
         await self.server.wait_for_termination()
 
-    async def create_game(self, players: List[str]) -> str:
+    async def create_game(self, players: List[str]) -> GameStart:
         raise NotImplementedError
 
     async def execute_action(self, game_id: str, game_data: Dict) -> GameState:
