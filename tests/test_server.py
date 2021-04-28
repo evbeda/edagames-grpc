@@ -1,5 +1,5 @@
 import grpc_testing
-import grpc
+# import grpc
 import unittest
 from unittest.mock import AsyncMock
 
