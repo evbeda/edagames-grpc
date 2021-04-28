@@ -21,18 +21,15 @@ message ExecuteActionRequest {
     google.protobuf.Struct data = 2;
 }
 
-message GameStateResponse {
-    google.protobuf.Struct play_data = 1;
-    string current_player = 2;
-    string next_player = 3;
-    google.protobuf.Struct turn_data = 4;
-}
-
-
 message GameStartResponse {
     string idgame = 1;
     string next_player = 2;
     google.protobuf.Struct turn_data = 3;
 }
 
-
+message GameStateResponse {
+    google.protobuf.Struct play_data = 1;
+    string current_player = 2;
+    string next_player = 3;
+    google.protobuf.Struct turn_data = 4;
+}
