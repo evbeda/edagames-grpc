@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="edagames_grpc",
-    version='0.3.2',
+    version='0.3.4',
     description='Interface for gRPC communication',
     package_dir={'': 'src'},
     packages=find_packages(where="src"),

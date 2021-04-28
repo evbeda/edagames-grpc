@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import eda_games_pb2 as eda__games__pb2
+from edagames_grpc import eda_games_pb2 as eda__games__pb2
 
 
 class EdaGameServiceStub(object):

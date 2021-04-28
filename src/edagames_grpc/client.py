@@ -3,8 +3,8 @@ from google.protobuf.struct_pb2 import Struct
 
 from .game_state import GameState
 
-from . import eda_games_pb2
-from . import eda_games_pb2_grpc
+from edagames_grpc import eda_games_pb2
+from edagames_grpc import eda_games_pb2_grpc
 
 
 class ClientGRPC:

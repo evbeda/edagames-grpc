@@ -5,8 +5,8 @@ from .game_state import GameState
 from .game_start import GameStart
 from .utils import struct_to_dict
 
-from . import eda_games_pb2
-from . import eda_games_pb2_grpc
+from edagames_grpc import eda_games_pb2
+from edagames_grpc import eda_games_pb2_grpc
 
 
 class ServerGRPC(eda_games_pb2_grpc.EdaGameServiceServicer):
