@@ -22,7 +22,10 @@ class ClientGRPC:
         data_struct = Struct()
         data_struct.update(data_dict)
         response = await self.stub.ExecuteAction(
-            eda_games_pb2.ExecuteActionRequest(idgame=game_id, data=data_struct)
+            eda_games_pb2.ExecuteActionRequest(
+                idgame=game_id,
+                data=data_struct,
+            )
         )
         return GameState.from_protobuf_game_state_response(response)
 
