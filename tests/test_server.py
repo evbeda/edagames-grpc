@@ -10,7 +10,7 @@ from edagames_grpc import eda_games_pb2
 from edagames_grpc import eda_games_pb2_grpc
 
 
-# Test Server Interface
+# Test Server Interface
 @pytest.fixture
 def server_interface():
     return ServerInterface()
