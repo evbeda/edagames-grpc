@@ -6,7 +6,7 @@ gRPC interface for edagames platform-game communication
 
 To compile protobuf definition into Python files install grpcio-tools and execute
 
-`python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. ./eda_games.proto`
+`python -m grpc_tools.protoc -I. --python_out=src/edagames_grpc --grpc_python_out=src/edagames_grpc ./eda_games.proto`
 
 ## Examples
 
@@ -21,10 +21,10 @@ To run them each example use:
 
 - Command to install the package:
 
-'pip install edagames-grpc'
+`pip install edagames-grpc`
 
 - Steps for running a new version package with changes:
 
 1) Change the version in the setup.py
-2) run: 'python setup.py bdist_wheel sdist' to update the package locally
-3) run: 'twine upload dist/*' to upload the new package version to pypi
+2) run: `python setup.py bdist_wheel sdist` to update the package locally
+3) run: `twine upload dist/*` to upload the new package version to pypi
