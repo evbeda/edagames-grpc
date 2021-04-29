@@ -24,9 +24,6 @@ class TestServerInterface(unittest.IsolatedAsyncioTestCase):
         await self.server.stop()
         server_patched.stop.assert_called()
 
-    def test_no_anda(self):
-        self.assertEqual(1, 1)
-
 
 class TestServerGRPC(unittest.IsolatedAsyncioTestCase):
 
