@@ -2,6 +2,7 @@ from unittest.mock import AsyncMock
 import pytest
 
 from edagames_grpc.game_start import GameStart
+from edagames_grpc.game_state import GameState
 from edagames_grpc.utils import struct_to_dict
 
 from edagames_grpc.server import ServerGRPC
@@ -41,7 +42,17 @@ def grpc_add_to_server():
 @pytest.fixture(scope='module')
 def grpc_servicer():
     delegate = AsyncMock()
-    delegate.create_game.return_value = GameStart('0001', 'Player 1', {})
+    delegate.create_game.return_value = GameStart(
+        '0001',
+        'Player 1',
+        {'data': 'turn_data'},
+    )
+    delegate.execute_action.return_value = GameState(
+        'Player 1',
+        'Player 2',
+        {'data': 'turn_data'},
+        {'data': 'play_data'},
+    )
     return ServerGRPC(delegate)
 
 
@@ -57,4 +68,22 @@ async def test_create_game(grpc_stub):
     response = await grpc_stub.CreateGame(request)
     assert response.idgame == '0001'
     assert response.current_player == 'Player 1'
-    assert struct_to_dict(response.turn_data) == {}
+    assert struct_to_dict(response.turn_data) == {'data': 'turn_data'}
+
+
+@pytest.mark.asyncio
+async def test_execute_action(grpc_stub):
+    request = eda_games_pb2.ExecuteActionRequest()
+    request.idgame = '0001'
+    request.data.update({
+        'action': 'move',
+        'data': {
+            'from_row': 1,
+            'to_row': 2,
+        },
+    })
+    response = await grpc_stub.ExecuteAction(request)
+    assert response.previous_player == 'Player 1'
+    assert response.current_player == 'Player 2'
+    assert struct_to_dict(response.turn_data) == {'data': 'turn_data'}
+    assert struct_to_dict(response.play_data) == {'data': 'play_data'}
