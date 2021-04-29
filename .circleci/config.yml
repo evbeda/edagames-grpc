@@ -27,7 +27,7 @@ jobs:
           command: pip install -e .
       - run:
           name: Running Tests
-          command: coverage run -m unittest && coverage xml && coverage report -m
+          command: coverage run -m pytest && coverage xml && coverage report -m
       - run:
           name: Update CodeClimate coverage report
           command: |
