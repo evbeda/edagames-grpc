@@ -26,6 +26,15 @@ async def test_server_start(server_interface):
 
 
 @pytest.mark.asyncio
+async def test_server_start_and_wait(server_interface):
+    server_patched = AsyncMock()
+    server_interface.server = server_patched
+    await server_interface.start_and_wait()
+    server_patched.start.assert_called()
+    server_patched.wait_for_termination.assert_called()
+
+
+@pytest.mark.asyncio
 async def test_server_stop(server_interface):
     server_patched = AsyncMock()
     server_interface.server = server_patched
@@ -47,12 +56,15 @@ def grpc_servicer():
         'Player 1',
         {'data': 'turn_data'},
     )
-    delegate.execute_action.return_value = GameState(
+    example_game_state = GameState(
         'Player 1',
         'Player 2',
         {'data': 'turn_data'},
         {'data': 'play_data'},
     )
+    delegate.execute_action.return_value = example_game_state
+    delegate.end_game.return_value = example_game_state
+    delegate.penalize.return_value = example_game_state
     return ServerGRPC(delegate)
 
 
@@ -83,6 +95,26 @@ async def test_execute_action(grpc_stub):
         },
     })
     response = await grpc_stub.ExecuteAction(request)
+    assert response.previous_player == 'Player 1'
+    assert response.current_player == 'Player 2'
+    assert struct_to_dict(response.turn_data) == {'data': 'turn_data'}
+    assert struct_to_dict(response.play_data) == {'data': 'play_data'}
+
+
+@pytest.mark.asyncio
+async def test_end_game(grpc_stub):
+    request = eda_games_pb2.Idgame(idgame='0001')
+    response = await grpc_stub.EndGame(request)
+    assert response.previous_player == 'Player 1'
+    assert response.current_player == 'Player 2'
+    assert struct_to_dict(response.turn_data) == {'data': 'turn_data'}
+    assert struct_to_dict(response.play_data) == {'data': 'play_data'}
+
+
+@pytest.mark.asyncio
+async def test_penalize(grpc_stub):
+    request = eda_games_pb2.Idgame(idgame='0001')
+    response = await grpc_stub.Penalize(request)
     assert response.previous_player == 'Player 1'
     assert response.current_player == 'Player 2'
     assert struct_to_dict(response.turn_data) == {'data': 'turn_data'}
