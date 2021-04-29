@@ -6,3 +6,6 @@ pyflakes==2.3.1
 grpcio-tools==1.37.0
 grpcio-testing==1.37.0
 twine==3.4.1
+pytest==6.2.3
+pytest-asyncio==0.15.1
+pytest-grpc==0.8.0
