@@ -1,11 +1,12 @@
 [run]
 source =
-    edagames_grpc
-    src/*
+    src/edagames_grpc
 omit =
     env/*
     */tests*
     */__init__.py
+    */eda_games_pb2.py
+    */eda_games_pb2_grpc.py
 
 [report]
 exclude_lines =
