@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0f\x65\x64\x61_games.proto\x1a\x1cgoogle/protobuf/struct.proto\"$\n\x11\x43reateGameRequest\x12\x0f\n\x07players\x18\x01 \x03(\t\"\x18\n\x06Idgame\x12\x0e\n\x06idgame\x18\x01 \x01(\t\"M\n\x14\x45xecuteActionRequest\x12\x0e\n\x06idgame\x18\x01 \x01(\t\x12%\n\x04\x64\x61ta\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\"\x98\x01\n\x11GameStateResponse\x12*\n\tplay_data\x18\x01 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x16\n\x0e\x63urrent_player\x18\x02 \x01(\t\x12\x13\n\x0bnext_player\x18\x03 \x01(\t\x12*\n\tturn_data\x18\x04 \x01(\x0b\x32\x17.google.protobuf.Struct\"d\n\x11GameStartResponse\x12\x0e\n\x06idgame\x18\x01 \x01(\t\x12\x13\n\x0bnext_player\x18\x02 \x01(\t\x12*\n\tturn_data\x18\x03 \x01(\x0b\x32\x17.google.protobuf.Struct2\xdb\x01\n\x0e\x45\x64\x61GameService\x12\x36\n\nCreateGame\x12\x12.CreateGameRequest\x1a\x12.GameStartResponse\"\x00\x12<\n\rExecuteAction\x12\x15.ExecuteActionRequest\x1a\x12.GameStateResponse\"\x00\x12(\n\x07\x45ndGame\x12\x07.Idgame\x1a\x12.GameStateResponse\"\x00\x12)\n\x08Penalize\x12\x07.Idgame\x1a\x12.GameStateResponse\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x0f\x65\x64\x61_games.proto\x1a\x1cgoogle/protobuf/struct.proto\"$\n\x11\x43reateGameRequest\x12\x0f\n\x07players\x18\x01 \x03(\t\"\x18\n\x06Idgame\x12\x0e\n\x06idgame\x18\x01 \x01(\t\"M\n\x14\x45xecuteActionRequest\x12\x0e\n\x06idgame\x18\x01 \x01(\t\x12%\n\x04\x64\x61ta\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\"g\n\x11GameStartResponse\x12\x0e\n\x06idgame\x18\x01 \x01(\t\x12\x16\n\x0e\x63urrent_player\x18\x02 \x01(\t\x12*\n\tturn_data\x18\x03 \x01(\x0b\x32\x17.google.protobuf.Struct\"\x9c\x01\n\x11GameStateResponse\x12*\n\tplay_data\x18\x01 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x17\n\x0fprevious_player\x18\x02 \x01(\t\x12\x16\n\x0e\x63urrent_player\x18\x03 \x01(\t\x12*\n\tturn_data\x18\x04 \x01(\x0b\x32\x17.google.protobuf.Struct2\xdb\x01\n\x0e\x45\x64\x61GameService\x12\x36\n\nCreateGame\x12\x12.CreateGameRequest\x1a\x12.GameStartResponse\"\x00\x12<\n\rExecuteAction\x12\x15.ExecuteActionRequest\x1a\x12.GameStateResponse\"\x00\x12(\n\x07\x45ndGame\x12\x07.Idgame\x1a\x12.GameStateResponse\"\x00\x12)\n\x08Penalize\x12\x07.Idgame\x1a\x12.GameStateResponse\"\x00\x62\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
 
@@ -130,59 +130,6 @@ _EXECUTEACTIONREQUEST = _descriptor.Descriptor(
 )
 
 
-_GAMESTATERESPONSE = _descriptor.Descriptor(
-  name='GameStateResponse',
-  full_name='GameStateResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='play_data', full_name='GameStateResponse.play_data', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='current_player', full_name='GameStateResponse.current_player', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='next_player', full_name='GameStateResponse.next_player', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='turn_data', full_name='GameStateResponse.turn_data', index=3,
-      number=4, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=193,
-  serialized_end=345,
-)
-
-
 _GAMESTARTRESPONSE = _descriptor.Descriptor(
   name='GameStartResponse',
   full_name='GameStartResponse',
@@ -199,7 +146,7 @@ _GAMESTARTRESPONSE = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='next_player', full_name='GameStartResponse.next_player', index=1,
+      name='current_player', full_name='GameStartResponse.current_player', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -224,19 +171,72 @@ _GAMESTARTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=347,
-  serialized_end=447,
+  serialized_start=192,
+  serialized_end=295,
+)
+
+
+_GAMESTATERESPONSE = _descriptor.Descriptor(
+  name='GameStateResponse',
+  full_name='GameStateResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='play_data', full_name='GameStateResponse.play_data', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='previous_player', full_name='GameStateResponse.previous_player', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='current_player', full_name='GameStateResponse.current_player', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='turn_data', full_name='GameStateResponse.turn_data', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=298,
+  serialized_end=454,
 )
 
 _EXECUTEACTIONREQUEST.fields_by_name['data'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
+_GAMESTARTRESPONSE.fields_by_name['turn_data'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
 _GAMESTATERESPONSE.fields_by_name['play_data'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
 _GAMESTATERESPONSE.fields_by_name['turn_data'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
-_GAMESTARTRESPONSE.fields_by_name['turn_data'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
 DESCRIPTOR.message_types_by_name['CreateGameRequest'] = _CREATEGAMEREQUEST
 DESCRIPTOR.message_types_by_name['Idgame'] = _IDGAME
 DESCRIPTOR.message_types_by_name['ExecuteActionRequest'] = _EXECUTEACTIONREQUEST
-DESCRIPTOR.message_types_by_name['GameStateResponse'] = _GAMESTATERESPONSE
 DESCRIPTOR.message_types_by_name['GameStartResponse'] = _GAMESTARTRESPONSE
+DESCRIPTOR.message_types_by_name['GameStateResponse'] = _GAMESTATERESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 CreateGameRequest = _reflection.GeneratedProtocolMessageType('CreateGameRequest', (_message.Message,), {
@@ -260,19 +260,19 @@ ExecuteActionRequest = _reflection.GeneratedProtocolMessageType('ExecuteActionRe
   })
 _sym_db.RegisterMessage(ExecuteActionRequest)
 
-GameStateResponse = _reflection.GeneratedProtocolMessageType('GameStateResponse', (_message.Message,), {
-  'DESCRIPTOR' : _GAMESTATERESPONSE,
-  '__module__' : 'eda_games_pb2'
-  # @@protoc_insertion_point(class_scope:GameStateResponse)
-  })
-_sym_db.RegisterMessage(GameStateResponse)
-
 GameStartResponse = _reflection.GeneratedProtocolMessageType('GameStartResponse', (_message.Message,), {
   'DESCRIPTOR' : _GAMESTARTRESPONSE,
   '__module__' : 'eda_games_pb2'
   # @@protoc_insertion_point(class_scope:GameStartResponse)
   })
 _sym_db.RegisterMessage(GameStartResponse)
+
+GameStateResponse = _reflection.GeneratedProtocolMessageType('GameStateResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GAMESTATERESPONSE,
+  '__module__' : 'eda_games_pb2'
+  # @@protoc_insertion_point(class_scope:GameStateResponse)
+  })
+_sym_db.RegisterMessage(GameStateResponse)
 
 
 
@@ -283,8 +283,8 @@ _EDAGAMESERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=450,
-  serialized_end=669,
+  serialized_start=457,
+  serialized_end=676,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateGame',
