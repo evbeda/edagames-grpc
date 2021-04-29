@@ -6,7 +6,7 @@ gRPC interface for edagames platform-game communication
 
 To compile protobuf definition into Python files install grpcio-tools and execute
 
-`python -m grpc_tools.protoc -I. --python_out=src/edagames_grpc --grpc_python_out=src/edagames_grpc ./eda_games.proto`
+`python -m grpc_tools.protoc -I./src --python_out=./src --grpc_python_out=./src ./src/edagames_grpc/eda_games.proto`
 
 ## Examples
 
