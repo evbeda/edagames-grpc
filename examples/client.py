@@ -11,10 +11,10 @@ async def test_client():
         {
             'action': 'move',
             'data': {
-                'from_row': 1,
-                'from_col': 2,
-                'to_rol': 1,
-                'to_col': 2,
+                'from_row': 0,
+                'from_col': 4,
+                'to_row': 1,
+                'to_col': 4,
             },
         },
     )
