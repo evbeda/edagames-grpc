@@ -5,7 +5,7 @@ from edagames_grpc.client import ClientGRPC
 async def test_client():
     c = ClientGRPC(port=50051)
     r = await c.create_game(['elenzo', 'lajuli'])
-    print(f'Received {r}')
+    print(f'Received {r.turn_data}\n\n')
     r = await c.execute_action(
         r.game_id,
         {
@@ -18,7 +18,7 @@ async def test_client():
             },
         },
     )
-    print(f'Received {r}')
+    print(f'Received {r.turn_data}')
 
 if __name__ == '__main__':
     loop = asyncio.get_event_loop()
