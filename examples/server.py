@@ -10,7 +10,7 @@ class TestGame:
         self.players = players
         self.current = 0
         self.prev = None
-        self.instance = self
+        TestGame.instance = self
 
 
 class ServerTest(ServerInterface):
