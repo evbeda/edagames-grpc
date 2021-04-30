@@ -21,7 +21,11 @@ class ServerTest(ServerInterface):
         TestGame(players)
         gid = '0000-0001'
         print(f'Returned game id: {gid}')
-        return GameStart(gid, 'uno', {})
+        return GameStart(
+            gid,
+            TestGame.instance.players[TestGame],
+            {},
+        )
 
     async def execute_action(self, game_id, game_data):
         print(f'Received game id: {game_id}')
@@ -33,8 +37,8 @@ class ServerTest(ServerInterface):
         game_data.update({'state': 'valid'})
 
         game_state = GameState(
-            f'Player {TestGame.instance.current + 1}',
-            f'Player {TestGame.instance.prev + 1}',
+            f'{TestGame.instance.players[TestGame.instance.current]}',
+            f'{TestGame.instance.players[TestGame.instance.prev]}',
             {'board': 'xxxxxxxxxxxxxxxxxxx'},
             {'action': 'move', 'data': game_data},
         )
