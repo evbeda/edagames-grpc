@@ -23,7 +23,7 @@ class ServerTest(ServerInterface):
         print(f'Returned game id: {gid}')
         return GameStart(
             gid,
-            TestGame.instance.players[TestGame],
+            TestGame.instance.players[0],
             {},
         )
 
@@ -47,7 +47,7 @@ class ServerTest(ServerInterface):
 
 
 if __name__ == '__main__':
-    s = ServerTest(port=50051)
+    s = ServerTest(port=50001)
     loop = asyncio.get_event_loop()
     loop.run_until_complete(s.start_and_wait())
     loop.run_forever()
