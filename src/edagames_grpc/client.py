@@ -1,7 +1,8 @@
 import grpc
 from google.protobuf.struct_pb2 import Struct
 
-from .game_state import GameState
+from edagames_grpc.game_state import GameState
+from edagames_grpc.game_start import GameStart
 
 from edagames_grpc import eda_games_pb2
 from edagames_grpc import eda_games_pb2_grpc
@@ -16,7 +17,7 @@ class ClientGRPC:
         response = await self.stub.CreateGame(
             eda_games_pb2.CreateGameRequest(players=players)
         )
-        return response.idgame
+        return GameStart.from_protobuf_game_start_response(response)
 
     async def execute_action(self, game_id, data_dict):
         data_struct = Struct()
