@@ -1,6 +1,7 @@
 from typing import Dict
 
 from edagames_grpc import eda_games_pb2
+from edagames_grpc.utils import struct_to_dict
 
 
 class GameStart:
@@ -32,5 +33,5 @@ class GameStart:
         return GameStart(
             game_start_response.idgame,
             game_start_response.current_player,
-            game_start_response.turn_data,
+            struct_to_dict(game_start_response.turn_data),
         )
