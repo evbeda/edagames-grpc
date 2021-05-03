@@ -3,11 +3,32 @@ from unittest.mock import AsyncMock
 
 from edagames_grpc.client import ClientGRPC
 
+import edagames_grpc.eda_games_pb2 as eda_games_pb2
+
 
 @pytest.fixture
 def test_client():
     client = ClientGRPC('127.0.0.1', 50051)
     client.stub = AsyncMock()
+
+    # GameStart mock object
+    game_start_mock = eda_games_pb2.GameStartResponse()
+    game_start_mock.idgame = '0001'
+    game_start_mock.current_player = 'Player 1'
+    game_start_mock.turn_data.update({})
+
+    # GameState mock object
+    game_state_mock = eda_games_pb2.GameStateResponse()
+    game_state_mock.previous_player = 'Player 1'
+    game_state_mock.current_player = 'Player 2'
+    game_state_mock.turn_data.update({})
+    game_state_mock.play_data.update({})
+
+    client.stub.CreateGame.return_value = game_start_mock
+    client.stub.ExecuteAction.return_value = game_state_mock
+    client.stub.EndGame.return_value = game_state_mock
+    client.stub.Penalize.return_value = game_state_mock
+
     return client
 
 
