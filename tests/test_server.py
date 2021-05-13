@@ -95,7 +95,7 @@ async def test_execute_action(grpc_stub):
         },
     })
     response = await grpc_stub.ExecuteAction(request)
-    assert response.previous_player == 'Player 1'
+    assert response.game_id == 'Player 1'
     assert response.current_player == 'Player 2'
     assert struct_to_dict(response.turn_data) == {'data': 'turn_data'}
     assert struct_to_dict(response.play_data) == {'data': 'play_data'}
@@ -105,7 +105,7 @@ async def test_execute_action(grpc_stub):
 async def test_end_game(grpc_stub):
     request = eda_games_pb2.Idgame(idgame='0001')
     response = await grpc_stub.EndGame(request)
-    assert response.previous_player == 'Player 1'
+    assert response.game_id == 'Player 1'
     assert response.current_player == 'Player 2'
     assert struct_to_dict(response.turn_data) == {'data': 'turn_data'}
     assert struct_to_dict(response.play_data) == {'data': 'play_data'}
@@ -115,7 +115,7 @@ async def test_end_game(grpc_stub):
 async def test_penalize(grpc_stub):
     request = eda_games_pb2.Idgame(idgame='0001')
     response = await grpc_stub.Penalize(request)
-    assert response.previous_player == 'Player 1'
+    assert response.game_id == 'Player 1'
     assert response.current_player == 'Player 2'
     assert struct_to_dict(response.turn_data) == {'data': 'turn_data'}
     assert struct_to_dict(response.play_data) == {'data': 'play_data'}
