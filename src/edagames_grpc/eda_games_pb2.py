@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1d\x65\x64\x61games_grpc/eda_games.proto\x1a\x1cgoogle/protobuf/struct.proto\"$\n\x11\x43reateGameRequest\x12\x0f\n\x07players\x18\x01 \x03(\t\"\x18\n\x06Idgame\x12\x0e\n\x06idgame\x18\x01 \x01(\t\"M\n\x14\x45xecuteActionRequest\x12\x0e\n\x06idgame\x18\x01 \x01(\t\x12%\n\x04\x64\x61ta\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\"g\n\x11GameStartResponse\x12\x0e\n\x06idgame\x18\x01 \x01(\t\x12\x16\n\x0e\x63urrent_player\x18\x02 \x01(\t\x12*\n\tturn_data\x18\x03 \x01(\x0b\x32\x17.google.protobuf.Struct\"\x9c\x01\n\x11GameStateResponse\x12*\n\tplay_data\x18\x01 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x17\n\x0fgame_id\x18\x02 \x01(\t\x12\x16\n\x0e\x63urrent_player\x18\x03 \x01(\t\x12*\n\tturn_data\x18\x04 \x01(\x0b\x32\x17.google.protobuf.Struct2\xdb\x01\n\x0e\x45\x64\x61GameService\x12\x36\n\nCreateGame\x12\x12.CreateGameRequest\x1a\x12.GameStartResponse\"\x00\x12<\n\rExecuteAction\x12\x15.ExecuteActionRequest\x1a\x12.GameStateResponse\"\x00\x12(\n\x07\x45ndGame\x12\x07.Idgame\x1a\x12.GameStateResponse\"\x00\x12)\n\x08Penalize\x12\x07.Idgame\x1a\x12.GameStateResponse\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x1d\x65\x64\x61games_grpc/eda_games.proto\x1a\x1cgoogle/protobuf/struct.proto\"$\n\x11\x43reateGameRequest\x12\x0f\n\x07players\x18\x01 \x03(\t\"\x18\n\x06Idgame\x12\x0e\n\x06idgame\x18\x01 \x01(\t\"M\n\x14\x45xecuteActionRequest\x12\x0e\n\x06idgame\x18\x01 \x01(\t\x12%\n\x04\x64\x61ta\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\"g\n\x11GameStartResponse\x12\x0e\n\x06idgame\x18\x01 \x01(\t\x12\x16\n\x0e\x63urrent_player\x18\x02 \x01(\t\x12*\n\tturn_data\x18\x03 \x01(\x0b\x32\x17.google.protobuf.Struct\"\x94\x01\n\x11GameStateResponse\x12*\n\tplay_data\x18\x01 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x0f\n\x07game_id\x18\x02 \x01(\t\x12\x16\n\x0e\x63urrent_player\x18\x03 \x01(\t\x12*\n\tturn_data\x18\x04 \x01(\x0b\x32\x17.google.protobuf.Struct2\xdb\x01\n\x0e\x45\x64\x61GameService\x12\x36\n\nCreateGame\x12\x12.CreateGameRequest\x1a\x12.GameStartResponse\"\x00\x12<\n\rExecuteAction\x12\x15.ExecuteActionRequest\x1a\x12.GameStateResponse\"\x00\x12(\n\x07\x45ndGame\x12\x07.Idgame\x1a\x12.GameStateResponse\"\x00\x12)\n\x08Penalize\x12\x07.Idgame\x1a\x12.GameStateResponse\"\x00\x62\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
 
@@ -225,7 +225,7 @@ _GAMESTATERESPONSE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=312,
-  serialized_end=468,
+  serialized_end=460,
 )
 
 _EXECUTEACTIONREQUEST.fields_by_name['data'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
@@ -283,8 +283,8 @@ _EDAGAMESERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=471,
-  serialized_end=690,
+  serialized_start=463,
+  serialized_end=682,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateGame',
