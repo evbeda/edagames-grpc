@@ -29,7 +29,7 @@ message GameStartResponse {
 
 message GameStateResponse {
     google.protobuf.Struct play_data = 1;
-    string previous_player = 2;
+    string game_id = 2;
     string current_player = 3;
     google.protobuf.Struct turn_data = 4;
 }

@@ -19,7 +19,7 @@ def test_client():
 
     # GameState mock object
     game_state_mock = eda_games_pb2.GameStateResponse()
-    game_state_mock.previous_player = 'Player 1'
+    game_state_mock.game_id = 'Player 1'
     game_state_mock.current_player = 'Player 2'
     game_state_mock.turn_data.update({})
     game_state_mock.play_data.update({})
