@@ -24,7 +24,7 @@ jobs:
           command: pipenv install -e .
       - run:
           name: Running Tests
-          command: pipenv run pipenv run coverage run -m pytest --grpc-fake-server && coverage xml && coverage report -m
+          command: pipenv run pipenv run coverage run -m pytest --grpc-fake-server && pipenv run coverage xml && pipenv run coverage report -m
       - run:
           name: Update CodeClimate coverage report
           command: |
