@@ -18,7 +18,7 @@ jobs:
               ./cc-test-reporter before-build
       - run:
           name: Install dependencies
-          command: pipenv sync
+          command: pipenv sync --dev
       - run:
           name: Install local package
           command: pipenv install -e .
