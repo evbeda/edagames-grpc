@@ -37,3 +37,5 @@ workflows:
   main:
     jobs:
       - build-and-test
+          context:
+            - 'edagames'
