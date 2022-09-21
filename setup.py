@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="edagames_grpc",
-    version='1.1.0',
+    version='1.1.1',
     description='Interface for gRPC communication',
     package_dir={'': 'src'},
     packages=find_packages(where="src"),
@@ -17,9 +17,10 @@ setup(
 
     # requirements
     install_requires=[
-        "grpcio==1.37.0",
+        "grpcio==1.48.1",
         "protobuf==3.15.8",
     ],
+    # older version of 'grpcio=1.37.0' updated to "grpcio==1.48.1"
 
     # LICENSE
     classifiers=[
